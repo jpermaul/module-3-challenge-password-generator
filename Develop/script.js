@@ -1,9 +1,3 @@
-var numberofChar = 5
-var allowLowercase = true/false
-var specialChar = true/false
-var allowUppercase = true/false
-var allowNumbers = true/false
-
 //arrays to be included in password
 var specialCharacters = ["!","@","#","$","%","&","*","<",">","?"]
 var lowerCaseCharacters = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"]
@@ -24,7 +18,7 @@ function generatePassword()
     return null;
   }
 
-  console.log(passwordlength)
+  
 
   //statement to test if minimum length was selected, if true then alert is triggered and prompt ends
   if (passwordlength < 8) {
@@ -48,9 +42,7 @@ function generatePassword()
     
   }
 
-  console.log(randomSpecialCharacterindex)
-  console.log(guaranteedCharacters)
-  console.log(characterPool)
+
 
   //asking to inlude lower case. if yes, add random lower case character to guranteedCharacters array. Then add lowerCaseCharacters array to characterPool array
   var allowLowercase = confirm("Do you want to allow lower case characters");
@@ -61,9 +53,6 @@ function generatePassword()
     characterPool = lowerCaseCharacters.concat(characterPool);
   }
 
-  console.log(randomLowerCaseIndex)
-  console.log(guaranteedCharacters)
-  console.log(characterPool)
 
   //asking to inlude upper case. if yes, add random upper case character to guranteedCharacters array. Then add upperCaseCharacters array to characterPool array
   var allowUppercase = confirm("Do you want to allow upper case characters");
@@ -74,9 +63,6 @@ function generatePassword()
     characterPool = upperCaseCharacters.concat(characterPool);
   }
 
-  console.log(randomLowerCaseIndex)
-  console.log(guaranteedCharacters)
-  console.log(characterPool)
 
   //asking to inlude numbers. if yes, add random numerical character to guranteedCharacters array. Then add numericalCharacters array to characterPool array
   var allowNumbers = confirm("Do you want to allow numerical characters");
@@ -98,14 +84,14 @@ function generatePassword()
   for (let i = 0; i < (passwordlength - guaranteedCharacters.length); i++) {
     forLoopCharacters = Math.floor(Math.random()* (passwordlength - guaranteedCharacters.length));
     password.push(characterPool[forLoopCharacters]);
-    console.log(i);
+    
 
   }
   //converting final password from array to string with no commas.
   finalPassword = guaranteedCharacters.concat(password)
-  console.log(finalPassword)
+
   var finalPasswordstring = finalPassword.join("");
-  console.log(finalPasswordstring)
+
   alert("Here is your secure password: " + finalPasswordstring)
   return null
   
