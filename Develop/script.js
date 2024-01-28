@@ -3,14 +3,15 @@ var specialCharacters = ["!","@","#","$","%","&","*","<",">","?"]
 var lowerCaseCharacters = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"]
 var upperCaseCharacters = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Z","X","C","V","B","N","M"]
 var numericalCharacters = ["0","1","2","3","4","5","6","7","8","9"]
-var characterPool = []
-var guaranteedCharacters = []
-var password = []
 
-//function to obtain password requirements from user
-function generatePassword() 
-{
+var generateBtn = document.querySelector("#generate");
+
+function generatePassword() {
+  var characterPool = [];
+  var guaranteedCharacters = [];
+  var password = [];
   var passwordlength = prompt("How many characters would you like your password to contain? (must be between 8-128 characters long)");
+  
   
   //statement to test above prompt is a number, if true result then alert is triggered and prompt ends
   if (isNaN(passwordlength)) {
@@ -92,31 +93,15 @@ function generatePassword()
 
   var finalPasswordstring = finalPassword.join("");
 
-  alert("Here is your secure password: " + finalPasswordstring)
-  return null
-  
+  //alert("Here is your secure password: " + finalPasswordstring)
+  return finalPasswordstring
 
-  
-  
-  /*var characterList = []
-  if (specialChar){
-    characterList = characterList.concat(specialCharacters)
-  }
-  if (allowLowercase) {characterList = characterList.concat(lowerCaseCharacters)}
-  if (allowUppercase) {characterList = characterList.concat(upperCaseCharacters)}
-  if (allowNumbers) {characterList = characterList.concat(numericalCharacters)}
-  console.log(characterList)*/
 }
-
-
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
